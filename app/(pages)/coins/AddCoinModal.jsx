@@ -43,19 +43,19 @@ const AddCoinModal = ({ onClose, isOpen }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
-      @.prev,
+      ...prev,
       [name]: value
     }));
   };
 
   const handleDurationChange = (index, field, value) => {
-    const newDurations = [@.formData.durations];
+    const newDurations = [...formData.durations];
     newDurations[index] = {
-      @.newDurations[index],
+      ...newDurations[index],
       [field]: value
     };
     setFormData(prev => ({
-      @.prev,
+      ...prev,
       durations: newDurations
     }));
 
@@ -65,14 +65,14 @@ const AddCoinModal = ({ onClose, isOpen }) => {
 
   const addDurationField = () => {
     setFormData(prev => ({
-      @.prev,
-      durations: [@.prev.durations, { duration: '', percentage: '' }]
+      ...prev,
+      durations: [...prev.durations, { duration: '', percentage: '' }]
     }));
   };
 
   const removeDurationField = (index) => {
     setFormData(prev => ({
-      @.prev,
+      ...prev,
       durations: prev.durations.filter((_, i) => i !== index)
     }));
   };

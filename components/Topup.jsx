@@ -291,7 +291,7 @@ const TopUp = ({drawer , setdrawer}) => {
             </div>
           ))}
         </div>
-        {/* Add remaining modal content here@. */}
+        {/* Add remaining modal content here... */}
 
         <div className="mb-6">
           <label
@@ -409,7 +409,7 @@ const TopUp = ({drawer , setdrawer}) => {
             disabled={isSubmitting}
             className="w-full rounded-lg bg-[#48FF2C] py-3 font-medium text-black hover:bg-green-600 disabled:opacity-50"
           >
-            {isSubmitting ? 'Processing@.' : 'Confirm deposit'}
+            {isSubmitting ? 'Processing...' : 'Confirm deposit'}
           </button>
         </div>
       </div>

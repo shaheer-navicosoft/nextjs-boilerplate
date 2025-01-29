@@ -750,7 +750,7 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
           disabled={!agreeToTerms || !lockedAmount || isSubmitting}
           className="w-full py-3 bg-[#48FF2C] text-black font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Creating stake@.' : 'Confirm'}
+          {isSubmitting ? 'Creating stake...' : 'Confirm'}
         </button>
       </div>
     </div>

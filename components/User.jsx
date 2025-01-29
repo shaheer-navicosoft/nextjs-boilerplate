@@ -55,7 +55,7 @@ const Users = () => {
       status: "ACTIVE",
       account: "Inactive",
     },
-    // @. add more users as needed
+    // ... add more users as needed
   ];
 
   return (

@@ -116,7 +116,7 @@ const WithdrawTo = ({setwithdraw}) => {
             </div>
           ))}
         </div>
-        {/* Add remaining modal content here@. */}
+        {/* Add remaining modal content here... */}
 
         <div className="mb-6">
           <label

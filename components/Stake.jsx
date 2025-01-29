@@ -82,7 +82,7 @@ const Stake = () => {
             </div>
           ))}
         </div>
-        {/* Add remaining modal content here@. */}
+        {/* Add remaining modal content here... */}
 
         <button className="w-full rounded-lg bg-[#48FF2C] py-2 font-medium text-black hover:bg-green-600">
           Continue

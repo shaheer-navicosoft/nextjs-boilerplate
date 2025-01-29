@@ -210,7 +210,7 @@ export default function RegisterForm() {
                 className="w-full rounded-lg bg-[#48FF2C] py-2 font-semibold text-black disabled:opacity-50"
                 disabled={loading}
               >
-                {loading ? 'Loading@.' : 'Continue'}
+                {loading ? 'Loading...' : 'Continue'}
               </button>
             </div>
           </form>
