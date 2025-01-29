@@ -37,7 +37,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({ @.formData, name: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full border rounded-md px-3 py-2"
               />
             </div>
@@ -49,7 +49,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ @.formData, email: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full border rounded-md px-3 py-2"
               />
             </div>
@@ -60,7 +60,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
               </label>
               <select
                 value={formData.verified ? 'ACTIVE' : 'BLOCKED'}
-                onChange={(e) => setFormData({ @.formData, verified: e.target.value === 'ACTIVE' })}
+                onChange={(e) => setFormData({ ...formData, verified: e.target.value === 'ACTIVE' })}
                 className="w-full border rounded-md px-3 py-2"
               >
                 <option value="ACTIVE">ACTIVE</option>
@@ -114,13 +114,13 @@ export default function UserPage() {
         },
         body: JSON.stringify({
           userId,
-          @.updatedData
+          ...updatedData
         })
       });
 
       if (response.ok) {
         const { user } = await response.json();
-        setUsers(users.map(u => u._id === userId ? { @.u, @.user } : u));
+        setUsers(users.map(u => u._id === userId ? { ...u, ...user } : u));
         setSelectedUser(null); // Close modal
       }
     } catch (error) {
