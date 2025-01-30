@@ -37,11 +37,9 @@ export default function VerifyForm() {
       const data = await res.json();
       
       if (res.ok) {
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('auth_token', data.token);
-          localStorage.setItem('user', JSON.stringify(data.user));
-          window.location.href = '/dashboard';
-        }
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        router.push('/dashboard');
       } else {
         const errorMessage = data.error || 
           (res.status === 401 ? 'Invalid verification code' :

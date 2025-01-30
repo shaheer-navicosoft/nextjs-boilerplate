@@ -10,7 +10,7 @@ const AddCoinModal = ({ onClose, isOpen }) => {
     durations: [{ duration: '', percentage: '' }],
     qrcode: null,
   });
-  
+
   const [imagePreview, setImagePreview] = useState(null);
   const [logoFile, setLogoFile] = useState(null);
   const [qrcodePreview, setQrcodePreview] = useState(null);
@@ -79,7 +79,7 @@ const AddCoinModal = ({ onClose, isOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const submitData = new FormData();
     if (logoFile) {
       submitData.append('logo', logoFile);
@@ -90,14 +90,14 @@ const AddCoinModal = ({ onClose, isOpen }) => {
     submitData.append('data', JSON.stringify(formData));
 
     console.log(submitData)
-    
+
     try {
       // Replace with your API endpoint
       const response = await fetch('/api/coin', {
         method: 'POST',
         body: submitData,
       });
-      
+
       if (response.ok) {
         onClose();
         // Add success notification here if needed
@@ -148,52 +148,52 @@ const AddCoinModal = ({ onClose, isOpen }) => {
         <div className="mb-6 flex">
           <div>
             {imagePreview ? (
-              <img 
-                src={imagePreview} 
-                alt="Coin logo preview" 
+              <img
+                src={imagePreview}
+                alt="Coin logo preview"
                 className="w-16 h-16 rounded-full object-cover"
               />
             ) : (
               <svg
-                width="64"
-                height="64"
+                width={64}
+                height={64}
                 viewBox="0 0 64 64"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect width="64" height="64" rx="32" fill="#E2E4E9" />
+                <rect width={64} height={64} rx={32} fill="#E2E4E9" />
                 <g filter="url(#filter0_i_2005_633)">
-                  <g clip-path="url(#clip0_2005_633)">
-                    <rect width="64" height="64" rx="32" fill="#E2E4E9" />
+                  <g clipPath="url(#clip0_2005_633)">
+                    <rect width={64} height={64} rx={32} fill="#E2E4E9" />
                     <g filter="url(#filter1_di_2005_633)">
                       <ellipse
-                        cx="32"
+                        cx={32}
                         cy="60.8001"
                         rx="25.6"
                         ry="19.2"
                         fill="url(#paint0_radial_2005_633)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                       />
                       <path
                         d="M57.1 60.8001C57.1 65.9094 54.3399 70.5731 49.802 73.9766C45.2638 77.3801 38.9715 79.5001 32 79.5001C25.0285 79.5001 18.7362 77.3801 14.1981 73.9766C9.66011 70.5731 6.90002 65.9094 6.90002 60.8001C6.90002 55.6908 9.66011 51.0271 14.1981 47.6236C18.7362 44.2201 25.0285 42.1001 32 42.1001C38.9715 42.1001 45.2638 44.2201 49.802 47.6236C54.3399 51.0271 57.1 55.6908 57.1 60.8001Z"
                         stroke="url(#paint1_radial_2005_633)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                       />
                     </g>
                     <g filter="url(#filter2_di_2005_633)">
                       <circle
-                        cx="32"
+                        cx={32}
                         cy="25.5998"
                         r="12.8"
                         fill="url(#paint2_radial_2005_633)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                       />
                       <circle
-                        cx="32"
+                        cx={32}
                         cy="25.5998"
                         r="12.3"
                         stroke="url(#paint3_radial_2005_633)"
-                        shape-rendering="crispEdges"
+                        shapeRendering="crispEdges"
                       />
                     </g>
                   </g>
@@ -201,14 +201,14 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                 <defs>
                   <filter
                     id="filter0_i_2005_633"
-                    x="0"
-                    y="-8"
-                    width="64"
-                    height="72"
+                    x={0}
+                    y={-8}
+                    width={64}
+                    height={72}
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
                     <feBlend
                       mode="normal"
                       in="SourceGraphic"
@@ -221,14 +221,9 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                       result="hardAlpha"
                     />
-                    <feOffset dy="-8" />
-                    <feGaussianBlur stdDeviation="8" />
-                    <feComposite
-                      in2="hardAlpha"
-                      operator="arithmetic"
-                      k2="-1"
-                      k3="1"
-                    />
+                    <feOffset dy={-8} />
+                    <feGaussianBlur stdDeviation={8} />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2={-1} k3={1} />
                     <feColorMatrix
                       type="matrix"
                       values="0 0 0 0 0.7712 0 0 0 0 0.78 0 0 0 0 0.7888 0 0 0 0.48 0"
@@ -246,17 +241,17 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                     width="59.2"
                     height="54.3999"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
                     <feColorMatrix
                       in="SourceAlpha"
                       type="matrix"
                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                       result="hardAlpha"
                     />
-                    <feOffset dy="4" />
-                    <feGaussianBlur stdDeviation="2" />
+                    <feOffset dy={4} />
+                    <feGaussianBlur stdDeviation={2} />
                     <feComposite in2="hardAlpha" operator="out" />
                     <feColorMatrix
                       type="matrix"
@@ -279,14 +274,9 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                       result="hardAlpha"
                     />
-                    <feOffset dy="-8" />
-                    <feGaussianBlur stdDeviation="4" />
-                    <feComposite
-                      in2="hardAlpha"
-                      operator="arithmetic"
-                      k2="-1"
-                      k3="1"
-                    />
+                    <feOffset dy={-8} />
+                    <feGaussianBlur stdDeviation={4} />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2={-1} k3={1} />
                     <feColorMatrix
                       type="matrix"
                       values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
@@ -304,17 +294,17 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                     width="33.6"
                     height="41.6001"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
                     <feColorMatrix
                       in="SourceAlpha"
                       type="matrix"
                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                       result="hardAlpha"
                     />
-                    <feOffset dy="4" />
-                    <feGaussianBlur stdDeviation="2" />
+                    <feOffset dy={4} />
+                    <feGaussianBlur stdDeviation={2} />
                     <feComposite in2="hardAlpha" operator="out" />
                     <feColorMatrix
                       type="matrix"
@@ -337,14 +327,9 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                       result="hardAlpha"
                     />
-                    <feOffset dy="-8" />
-                    <feGaussianBlur stdDeviation="4" />
-                    <feComposite
-                      in2="hardAlpha"
-                      operator="arithmetic"
-                      k2="-1"
-                      k3="1"
-                    />
+                    <feOffset dy={-8} />
+                    <feGaussianBlur stdDeviation={4} />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2={-1} k3={1} />
                     <feColorMatrix
                       type="matrix"
                       values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
@@ -357,53 +342,54 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                   </filter>
                   <radialGradient
                     id="paint0_radial_2005_633"
-                    cx="0"
-                    cy="0"
-                    r="1"
+                    cx={0}
+                    cy={0}
+                    r={1}
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(32 41.6001) rotate(90) scale(38.4 51.2)"
                   >
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                    <stop stopColor="white" />
+                    <stop offset={1} stopColor="white" stopOpacity={0} />
                   </radialGradient>
                   <radialGradient
                     id="paint1_radial_2005_633"
-                    cx="0"
-                    cy="0"
-                    r="1"
+                    cx={0}
+                    cy={0}
+                    r={1}
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(32 41.6001) rotate(90) scale(38.4 51.2)"
                   >
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                    <stop stopColor="white" />
+                    <stop offset={1} stopColor="white" stopOpacity={0} />
                   </radialGradient>
                   <radialGradient
                     id="paint2_radial_2005_633"
-                    cx="0"
-                    cy="0"
-                    r="1"
+                    cx={0}
+                    cy={0}
+                    r={1}
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(32 12.7998) rotate(90) scale(25.6)"
                   >
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                    <stop stopColor="white" />
+                    <stop offset={1} stopColor="white" stopOpacity={0} />
                   </radialGradient>
                   <radialGradient
                     id="paint3_radial_2005_633"
-                    cx="0"
-                    cy="0"
-                    r="1"
+                    cx={0}
+                    cy={0}
+                    r={1}
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(32 12.7998) rotate(90) scale(25.6)"
                   >
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                    <stop stopColor="white" />
+                    <stop offset={1} stopColor="white" stopOpacity={0} />
                   </radialGradient>
                   <clipPath id="clip0_2005_633">
-                    <rect width="64" height="64" rx="32" fill="white" />
+                    <rect width={64} height={64} rx={32} fill="white" />
                   </clipPath>
                 </defs>
               </svg>
+
             )}
           </div>
           <div className="ml-[10px]">
@@ -434,18 +420,18 @@ const AddCoinModal = ({ onClose, isOpen }) => {
         <div className="mb-6 flex">
           <div>
             {qrcodePreview ? (
-              <img 
-                src={qrcodePreview} 
-                alt="QR code preview" 
+              <img
+                src={qrcodePreview}
+                alt="QR code preview"
                 className="w-16 h-16 object-cover"
               />
             ) : (
               <div className="w-16 h-16 bg-gray-100 flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 3H9V9H3V3Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 3H21V9H15V3Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3 15H9V21H3V15Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 15H21V21H15V15Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 3H9V9H3V3Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M15 3H21V9H15V3Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 15H9V21H3V15Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M15 15H21V21H15V15Z" stroke="#8D8D8D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             )}
@@ -571,7 +557,7 @@ const AddCoinModal = ({ onClose, isOpen }) => {
                   className="absolute right-0 top-0 p-0"
                 >
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3.25H15.441C14.54 3.25 14.502 3.136 14.255 2.396L14.053 1.789C13.746 0.869001 12.889 0.25 11.919 0.25H8.08099C7.11099 0.25 6.253 0.868001 5.947 1.789L5.745 2.396C5.498 3.137 5.46 3.25 4.559 3.25H1C0.586 3.25 0.25 3.586 0.25 4C0.25 4.414 0.586 4.75 1 4.75H2.298L3.065 16.249C3.213 18.474 4.57701 19.75 6.80701 19.75H13.194C15.423 19.75 16.787 18.474 16.936 16.249L17.703 4.75H19C19.414 4.75 19.75 4.414 19.75 4C19.75 3.586 19.414 3.25 19 3.25Z" fill="#AFAFAF"/>
+                    <path d="M19 3.25H15.441C14.54 3.25 14.502 3.136 14.255 2.396L14.053 1.789C13.746 0.869001 12.889 0.25 11.919 0.25H8.08099C7.11099 0.25 6.253 0.868001 5.947 1.789L5.745 2.396C5.498 3.137 5.46 3.25 4.559 3.25H1C0.586 3.25 0.25 3.586 0.25 4C0.25 4.414 0.586 4.75 1 4.75H2.298L3.065 16.249C3.213 18.474 4.57701 19.75 6.80701 19.75H13.194C15.423 19.75 16.787 18.474 16.936 16.249L17.703 4.75H19C19.414 4.75 19.75 4.414 19.75 4C19.75 3.586 19.414 3.25 19 3.25Z" fill="#AFAFAF" />
                   </svg>
                 </button>
               )}
@@ -584,15 +570,15 @@ const AddCoinModal = ({ onClose, isOpen }) => {
             className="w-full flex items-center justify-center space-x-2 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 3.33334V12.6667" stroke="#8D8D8D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M3.33334 8H12.6667" stroke="#8D8D8D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M8 3.33334V12.6667" stroke="#8D8D8D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3.33334 8H12.6667" stroke="#8D8D8D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <span className="text-sm text-gray-600">Add field</span>
           </button>
         </div>
 
         {/* Submit Button */}
-        <button 
+        <button
           type="submit"
           className="w-full mt-6 py-3 bg-[#00FF29] text-black rounded-lg hover:bg-[#00E025] transition-colors text-sm font-medium"
         >

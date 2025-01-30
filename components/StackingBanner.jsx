@@ -334,7 +334,7 @@ const StackingBanner = () => {
             url: `https://rest.coinapi.io/v1/exchangerate/${coin.name}/USDT`,
             headers: {
               'Accept': 'text/plain',
-              'X-CoinAPI-Key': 'b4e2baca-f9b6-4d4b-a8fc-2493f0fbd6a8'
+              'X-CoinAPI-Key': '670ccc51-6c4b-4cf8-b1f2-195e5ff5df78'
             }
           });
 
@@ -513,17 +513,17 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
         url: `https://rest.coinapi.io/v1/exchangerate/USDT/${coin.name}`,
         headers: {
           'Accept': 'text/plain',
-          'X-CoinAPI-Key': 'b4e2baca-f9b6-4d4b-a8fc-2493f0fbd6a8'
+          'X-CoinAPI-Key': '670ccc51-6c4b-4cf8-b1f2-195e5ff5df78'
         }
       });
 
       const rate = response.data.rate.toFixed(2);
-      
+
       console.log(`reverse rate ${rate * parseFloat(lockedAmount)} , coin ${JSON.stringify(coin)}`);
       setUpdatedCoinRate({ ...coin, rate: rate * parseFloat(lockedAmount) });
     } catch (error) {
       console.error(`Error fetching rate for ${coin.name}:`, error);
-     
+
     }
     return;
 
@@ -538,7 +538,7 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ 
+          body: JSON.stringify({
             amount: updatedCoinRate.rate // Send the converted rate amount
           })
         });
@@ -552,7 +552,7 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
         // Close modal/drawer
         setShowQRModal(false);
         setdrawer(false);
-        
+
         // Show success message
         toast.success('Topup amount updated successfully');
 
@@ -572,11 +572,11 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
       console.error(`Error updating coin ${coin.name}:`, error);
     }
 
-  
+
 
     try {
       setIsSubmitting(true);
-      
+
       // Format dates as ISO strings
       const startDateObj = new Date();
       const endDateObj = new Date(startDateObj.getTime() + selectedDuration * 24 * 60 * 60 * 1000);
@@ -608,7 +608,7 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to create stake');
       }
@@ -644,8 +644,8 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
                 key={option.days}
                 onClick={() => setSelectedDuration(option.days)}
                 className={`p-3 rounded-lg border text-center ${selectedDuration === option.days
-                    ? "border-green-500 bg-green-50"
-                    : "border-gray-200"
+                  ? "border-green-500 bg-green-50"
+                  : "border-gray-200"
                   }`}
               >
                 <div className="font-medium text-black">{option.days} Days</div>
@@ -758,7 +758,7 @@ const StakingDetailsModal = ({ coin, totalApprovedAmount, onClose }) => {
 };
 
 // Update StakingModal to show StakingDetailsModal after selection
-const StakingModal = ({ coins, selectedCoin, setSelectedCoin, onClose, totalApprovedAmount,topups }) => {
+const StakingModal = ({ coins, selectedCoin, setSelectedCoin, onClose, totalApprovedAmount, topups }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const handleContinue = () => {
@@ -776,7 +776,7 @@ const StakingModal = ({ coins, selectedCoin, setSelectedCoin, onClose, totalAppr
         onClose={() => {
           setShowDetails(false);
           onClose();
-         
+
         }}
       />
     );

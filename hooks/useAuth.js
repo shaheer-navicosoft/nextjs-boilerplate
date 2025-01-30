@@ -1,29 +1,28 @@
 'use client'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export function useAuth(requireAuth = true) {
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Only access localStorage on the client side
-    const hasAuthToken = typeof window !== 'undefined' 
-      ? localStorage.getItem('auth_token')
-      : null;
-    
-    if (requireAuth && !hasAuthToken) {
-      // Redirect to home if auth is required but user is not authenticated
-      router.push('/');
-    } else if (!requireAuth && hasAuthToken) {
-      // Redirect to dashboard if user is already authenticated
-      router.push('/dashboard');
+    try {
+      const hasAuthToken = localStorage.getItem('auth_token');
+      setIsAuthenticated(!!hasAuthToken);
+      
+      if (requireAuth && !hasAuthToken) {
+        router.push('/');
+      } else if (!requireAuth && hasAuthToken) {
+        router.push('/dashboard');
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+    } finally {
+      setIsLoading(false);
     }
   }, [router, requireAuth]);
 
-  // Check for client-side before accessing localStorage
-  const isAuthenticated = typeof window !== 'undefined' 
-    ? !!localStorage.getItem('auth_token')
-    : false;
-
-  return { isAuthenticated };
+  return { isAuthenticated, isLoading };
 } 
