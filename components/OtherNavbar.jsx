@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import React, { useState } from "react";
- 
+
 import NextImage from "next/image";
- 
+
 const OtherNavbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -25,7 +25,7 @@ const OtherNavbar = () => {
     <>
       <nav className="max-w-[1250px] sticky top-0 z-50 bg-[#10141B] px-4 mx-auto py-8 flex items-center justify-between gap-2">
         <a href="/">
-          <NextImage src={'/logo.svg'} width={142} height={42} alt="logo" />
+          <NextImage src={"/logo.svg"} width={142} height={42} alt="logo" />
         </a>
 
         <div className="xl:flex hidden items-center gap-6 xl:gap-[34px]">
@@ -46,7 +46,7 @@ const OtherNavbar = () => {
           <div className="flex  items-center cursor-pointer  gap-4">
             <h1 className="font-semibold hidden sm:inline-flex">Reece.J</h1>
             <NextImage
-              src={'/user.png'}
+              src={"/user.png"}
               width={52}
               height={52}
               className="sm:w-[52px] w-10 h-10 rounded-full object-cover sm:h-[52px] "
@@ -64,7 +64,6 @@ const OtherNavbar = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-6"
             >
               <path
                 strokeLinecap="round"
