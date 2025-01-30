@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Link } from "next/link";
 
@@ -61,8 +61,7 @@ const Navbar = () => {
 
         <div className="flex  items-center gap-4 ">
           <div className="sm:flex hidden items-center gap-4">
-           
-           {/* <Link href="/login">
+            {/* <Link href="/login">
             <button className="bg-[#48FF2C] hover:bg-[#46ce30] sm:text-[16px] text-sm rounded-lg sm:rounded-[12px] px-4 sm:px-7 py-1.5 sm:py-2 font-semibold text-black">
               Login
             </button>
@@ -82,7 +81,6 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-6"
             >
               <path
                 strokeLinecap="round"
@@ -100,7 +98,10 @@ const Navbar = () => {
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out h-screen justify-center sm:px-6 py-8 px-4 w-full sm:w-1/2 fixed top-0 left-0 bg-[#0c0f14]  gap-6 xl:gap-[34px]`}
       >
-        <div onClick={toggleDrawer} className="absolute cursor-pointer top-5 right-4">
+        <div
+          onClick={toggleDrawer}
+          className="absolute cursor-pointer top-5 right-4"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-auto w-8 text-[#71798A] hover:text-white"
